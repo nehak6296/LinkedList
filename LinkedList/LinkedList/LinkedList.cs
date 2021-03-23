@@ -15,14 +15,14 @@ namespace LinkedList
             else
             {
                 Node temp = head;
-                while(temp.next != null)
+                while (temp.next != null)
                 {
                     temp = temp.next;
                 }
                 temp.next = node;
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
-                
+
         }
         internal void Display()
         {
@@ -32,7 +32,7 @@ namespace LinkedList
                 Console.WriteLine("Linked List is empty");
                 return;
             }
-            while(temp != null)
+            while (temp != null)
             {
                 Console.WriteLine(temp.data + " ");
                 temp = temp.next;
@@ -64,10 +64,10 @@ namespace LinkedList
 
                 }
                 if (Position != 1)
-                    Console.WriteLine("Position out of Range..");            
+                    Console.WriteLine("Position out of Range..");
             }
             return head;
-            
+
         }
         internal Node RemoveFirstNode()
         {
@@ -83,13 +83,25 @@ namespace LinkedList
             if (head.next == null)
                 return null;
             Node newNode = head;
-            while(newNode.next.next != null)
+            while (newNode.next.next != null)
             {
                 newNode = newNode.next;
             }
             newNode.next = null;
             return head;
         }
-
+        internal Node Search(int Value)
+        {
+            while (this.head != null)
+            {
+                if (this.head.data == Value)
+                {
+                    return this.head;
+                }
+                this.head = this.head.next;
+            }
+            return null;
+        }        
     }
 }
+
